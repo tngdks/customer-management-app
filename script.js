@@ -5,17 +5,13 @@ function addCustomer (){
     console.log("Add clicked");
     let input = document.getElementById("nameInput");
     let name = input.value;
+    
 
     if(name === ""){
         alert("Enter a name");
         return;
     }
 
-    if(customers.length === 0) {
-        list.innerHTML = "No customers added";
-        return;
-    }
-    
     customers.push(name);
 
     localStorage.setItem("customers", JSON.stringify(customers));
@@ -27,11 +23,17 @@ function addCustomer (){
 
 function displayCustomers(){
     let list = document.getElementById("customerList");
+
     list.innerHTML = "";
 
     for (let i = 0; i < customers.length; i++){
         let li = document.createElement("li");
         li.textContent = customers[i];
+
+        if(customers.length === 0) {
+            list.innerHTML = "<p class = 'empty'>No customer Added</p>";
+            return;
+        }
 
         //create delete button
         let delBtn = document.createElement("button");
