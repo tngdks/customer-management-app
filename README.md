@@ -43,4 +43,4 @@ The data is stored in browser using localStorage, so it remains even after refre
 ---
 
 ## 🔗 Live Demo
-https://your-username.github.io/customer-management-app/
+https://tngdks.github.io/customer-management-app/
