@@ -2,6 +2,7 @@ let customers = JSON.parse(localStorage.getItem("customers")) || [];
 displayCustomers();
 
 function addCustomer (){
+    console.log("Add clicked");
     let input = document.getElementById("nameInput");
     let name = input.value;
 
@@ -10,6 +11,11 @@ function addCustomer (){
         return;
     }
 
+    if(customers.length === 0) {
+        list.innerHTML = "No customers added";
+        return;
+    }
+    
     customers.push(name);
 
     localStorage.setItem("customers", JSON.stringify(customers));
@@ -23,11 +29,6 @@ function displayCustomers(){
     let list = document.getElementById("customerList");
     list.innerHTML = "";
 
-    if(customers.length === 0) {
-        list.innerHTML = "No customers addded";
-        return;
-    }
-    
     for (let i = 0; i < customers.length; i++){
         let li = document.createElement("li");
         li.textContent = customers[i];
