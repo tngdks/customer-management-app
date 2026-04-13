@@ -27,7 +27,7 @@ function displayCustomers(){
         list.innerHTML = "No customers addded";
         return;
     }
-
+    
     for (let i = 0; i < customers.length; i++){
         let li = document.createElement("li");
         li.textContent = customers[i];
